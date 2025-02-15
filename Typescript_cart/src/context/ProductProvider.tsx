@@ -41,7 +41,7 @@ ReactElement=>{
 
     useEffect(()=> {
         const fetchProducts = async ():Promise<ProductType[]> =>{
-            const data = fetch('http://localhost:3500/proiducts').then(res=>{
+            const data = fetch('http://localhost:3500/products').then(res=>{
                 return res.json()
             }).catch(err =>{
                 if(err instanceof Error) console.log(err.message)
@@ -50,12 +50,12 @@ ReactElement=>{
         }
         fetchProducts().then(products => setProducts(products))
     },[])
-}
+
 
 return(
     <ProductsContext.Provider value={{ products}}>
         {children}
     </ProductsContext.Provider>
 )
-
+}
 export default ProductsContext
